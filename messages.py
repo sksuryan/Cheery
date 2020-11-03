@@ -1,21 +1,13 @@
-import os
-import random
-import pymongo
+import json
+import requests
 
-#mongo db url
-MONGO_URL = os.environ.get('DB')
-
-#database
-mongo = pymongo.MongoClient(MONGO_URL)
-db = mongo.cheery
+URL = 'https://wholesome-cheery-api.herokuapp.com'
 
 def returnRandomMessage():
-    n = db.messages.count()
+    data = requests.get(f'{URL}/get')
+    data = json.loads(data.text)
 
-    randomMessage = random.randint(0,n-1)
-
-    message = list(db.messages.find().skip(randomMessage).limit(1))
-    return message[0]['message']
+    return data['message']
 
 def addUserMessage(msg):
-    db.messages.insert_one({'message': msg})
+    data = requests.post(f'{URL}/post', json={'message': msg})
