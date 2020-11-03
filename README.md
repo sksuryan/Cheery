@@ -9,8 +9,7 @@ Cheery is a wholesome bot for developers which periodically sends you cute messa
 
 ### 🤖 Stack:
 
-    😇 Python - discord.py and pymongo primarily
-    😇 MongoDB - for storing the wholesome messages
+    😇 Python - discord.py and requests primarily
 
 ### 🐇 Get the project up and running:
 ```bash
@@ -23,5 +22,4 @@ $ python app.py
 ```
 
 ##### 👷‍♂️ Environmental Variables
-    🛠 DB - MongoDB Atlas URL
     🛠 BOT - Discord Bot's Client ID
